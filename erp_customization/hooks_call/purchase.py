@@ -28,6 +28,14 @@ def validate_bill_no(self, method):
 		frappe.msgprint(_("Supplier Invoice Date cannot be after Purchase Invoice Date"))
 
 @frappe.whitelist(allow_guest=True)
+def validate_role(self, method):
+		user="kolate.sambhaji@gmail.com"
+		frappe.msgprint(_("In role validate function"))
+		role_list = frappe.db.sql("""select name,owner,parent,idx,role from tabUserRole where parent=%s and role='Blogger'""",
+				user)
+		frappe.msgprint(role_list) #this will test user role blogger
+
+@frappe.whitelist(allow_guest=True)
 def task(self, method):
 		doc_m = frappe.get_doc("Sales Invoice", "SINV-00001")
 		doc_m.customer = "sambhaji"

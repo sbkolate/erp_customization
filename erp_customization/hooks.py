@@ -83,6 +83,9 @@ doc_events = {
 	},
 	"Sales Order": {
 		"validate": "erp_customization.hooks_call.purchase.task"
+	},
+	"Sales Invoice": {
+		"validate": "erp_customization.hooks_call.purchase.validate_role"
 	}
 }
 
