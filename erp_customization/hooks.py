@@ -81,11 +81,15 @@ doc_events = {
 	"Purchase Invoice": {
 		"validate": "erp_customization.hooks_call.purchase.validate_bill_no"
 	},
-	"Sales Order": {
-		"validate": "erp_customization.hooks_call.purchase.task"
-	},
+	# "Sales Order": {
+	# 	"validate": "erp_customization.hooks_call.purchase.task"
+	# },
 	"Sales Invoice": {
 		"validate": "erp_customization.hooks_call.purchase.validate_role"
+	},
+	"Project": {
+		"before_validate": "erp_customization.hooks_call.mydoc.validate",
+		"validate": "erp_customization.hooks_call.purchase.validate_project"
 	}
 }
 

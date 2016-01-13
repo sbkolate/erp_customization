@@ -63,4 +63,7 @@ def validate_bill_no2(self, method):
 				if getdate(self.bill_date) > getdate(self.posting_date):
 					frappe.throw(_("Supplier Invoice Date cannot be after Purchase Invoice Date"))
 
+@frappe.whitelist(allow_guest=True)
 
+def validate_project(self, method):
+	frappe.msgprint("in project")
